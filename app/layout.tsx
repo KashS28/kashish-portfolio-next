@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: "%s — Kashish Shah",
   },
   description:
-    "Kashish Shah is an ML Engineer and software developer based in Boston. Builds machine learning systems, AI applications, and full-stack products. MS ECE, Northeastern University.",
+    "Kashish Shah is an ML Engineer and software developer based in San Francisco. Builds machine learning systems, AI applications, and full-stack products. MS ECE, Northeastern University.",
   authors: [{ name: "Kashish Shah" }],
   keywords: [
     "ML Engineer", "Machine Learning Engineer", "Software Developer",

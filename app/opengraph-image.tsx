@@ -54,7 +54,7 @@ export default function OGImage() {
             letterSpacing: "-0.01em",
           }}
         >
-          ML Engineer · Mumbai → Boston
+          ML Engineer · Mumbai → SFO
         </p>
       </div>
 

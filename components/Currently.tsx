@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 const LINES = [
   "debugging a 40ms latency spike",
   "listening to: Nujabes",
-  "Mumbai → Boston → wherever",
+  "Mumbai → Boston → SFO",
   "thinking about attention mechanisms",
   "missing Mumbai monsoons",
   "coffee #3 of the day",

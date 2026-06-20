@@ -6,7 +6,7 @@ import s from "./home.module.css";
 export const metadata: Metadata = {
   title: "Kashish Shah — ML Engineer & Software Developer",
   description:
-    "Kashish Shah is an ML Engineer and software developer based in Boston. Builds ML systems, AI applications, and full-stack products. MS ECE, Northeastern University.",
+    "Kashish Shah is an ML Engineer and software developer based in San Francisco. Builds ML systems, AI applications, and full-stack products. MS ECE, Northeastern University.",
 };
 
 const LABEL_STYLE: React.CSSProperties = {
@@ -38,7 +38,7 @@ export default function Home() {
           </h1>
 
           <p style={{ fontSize: "16px", color: "var(--text-2)", marginBottom: "10px" }}>
-            ML Engineer · Mumbai → Boston
+            ML Engineer · Mumbai → SFO
           </p>
 
           <Currently />
@@ -66,7 +66,7 @@ export default function Home() {
           {/* Bio */}
           <div style={{ maxWidth: "540px" }}>
             <p style={{ fontSize: "15.5px", color: "var(--text-2)", lineHeight: 1.8, marginBottom: "16px" }}>
-              Born in Mumbai, moved to Boston for grad school, stayed for the work. Finished
+              Born in Mumbai, moved to Boston for grad school, now in San Francisco. Finished
               my MS in ECE at Northeastern — but the degree is the least interesting thing
               about the last two years.
             </p>
