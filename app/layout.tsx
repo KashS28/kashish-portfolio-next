@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import CommandPalette from "@/components/CommandPalette";
@@ -13,6 +14,7 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://kashish-portfolio-v2.vercel.app"),
   title: "Kashish Shah",
   description: "ML Engineer and software builder.",
   authors: [{ name: "Kashish Shah" }],
@@ -31,6 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Nav />
         <CommandPalette />
         <PageTransition>{children}</PageTransition>
+        <Analytics />
         <footer style={{ borderTop: "1px solid var(--border)" }}>
           <div
             className="pw"
