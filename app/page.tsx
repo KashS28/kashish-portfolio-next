@@ -3,7 +3,11 @@ import type { Metadata } from "next";
 import Currently from "@/components/Currently";
 import s from "./home.module.css";
 
-export const metadata: Metadata = { title: "Kashish Shah" };
+export const metadata: Metadata = {
+  title: "Kashish Shah — ML Engineer & Software Developer",
+  description:
+    "Kashish Shah is an ML Engineer and software developer based in Boston. Builds ML systems, AI applications, and full-stack products. MS ECE, Northeastern University.",
+};
 
 const LABEL_STYLE: React.CSSProperties = {
   fontFamily: "var(--font-mono)",
@@ -85,7 +89,7 @@ export default function Home() {
           <div style={{ display: "flex", flexDirection: "column", gap: "20px", marginBottom: "32px" }}>
             {([
               { role: "ML Engineer", company: "SquareResults", note: "AI recruiting — resume parsing & semantic matching at scale.", link: undefined },
-              { role: "Software Dev Engineer", company: "Adaptive Concepts Academy", note: "Harmonetics — music therapy for autistic toddlers.", link: "https://harmonetics.vercel.app/" },
+              { role: "Software Dev Engineer", company: "Adaptive Concepts Academy", note: "Harmonetics — music therapy for autistic toddlers. Volunteer.", link: "https://harmonetics.vercel.app/" },
             ] as const).map(({ role, company, note, link }) => (
               <div key={company}>
                 <p style={{ fontSize: "14px", fontWeight: 500, color: "var(--text)", marginBottom: "2px", lineHeight: 1.35 }}>

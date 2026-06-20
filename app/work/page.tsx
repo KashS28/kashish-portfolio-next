@@ -16,7 +16,7 @@ const jobs = [
     company: "Adaptive Concepts Academy",
     role: "Software Dev Engineer",
     period: "Aug 2025 – Present",
-    location: "Remote",
+    location: "Remote · Volunteer",
     summary: "Built Harmonetics — a music therapy web app for autistic toddlers converting words to musical sequences across 3 languages and 5 instruments, with <100ms audio latency via Web Audio API. WCAG AAA. Live at 8 therapy centers, 150+ users.",
     stack: ["React", "Next.js", "Web Audio API", "Tone.js", "Tailwind CSS", "Vercel"],
     link: "https://harmonetics.vercel.app/",

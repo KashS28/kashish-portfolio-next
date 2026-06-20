@@ -15,9 +15,23 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kashish-portfolio-v2.vercel.app"),
-  title: "Kashish Shah",
-  description: "ML Engineer and software builder.",
+  title: {
+    default: "Kashish Shah — ML Engineer & Software Developer",
+    template: "%s — Kashish Shah",
+  },
+  description:
+    "Kashish Shah is an ML Engineer and software developer based in Boston. Builds machine learning systems, AI applications, and full-stack products. MS ECE, Northeastern University.",
   authors: [{ name: "Kashish Shah" }],
+  keywords: [
+    "ML Engineer", "Machine Learning Engineer", "Software Developer",
+    "Software Engineer", "AI Engineer", "Full-Stack Developer",
+    "Kashish Shah", "Boston", "Northeastern University",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "Kashish Shah",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -27,6 +41,33 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link
           href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,600&family=JetBrains+Mono:wght@400;500&display=swap"
           rel="stylesheet"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Kashish Shah",
+              url: "https://kashish-portfolio-v2.vercel.app",
+              email: "kashishah2804@gmail.com",
+              jobTitle: "ML Engineer",
+              description:
+                "ML Engineer and software developer specializing in machine learning systems, AI applications, and full-stack engineering.",
+              alumniOf: [
+                { "@type": "CollegeOrUniversity", name: "Northeastern University" },
+                { "@type": "CollegeOrUniversity", name: "University of Mumbai" },
+              ],
+              sameAs: [
+                "https://linkedin.com/in/kashish-shah-2804",
+                "https://github.com/KashS28",
+              ],
+              knowsAbout: [
+                "Machine Learning", "Artificial Intelligence", "Software Engineering",
+                "Full-Stack Development", "Python", "React", "Next.js",
+              ],
+            }),
+          }}
         />
       </head>
       <body style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
