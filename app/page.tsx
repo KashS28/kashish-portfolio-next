@@ -1,65 +1,136 @@
-import Image from "next/image";
+import Link from "next/link";
+import type { Metadata } from "next";
+import Currently from "@/components/Currently";
+import s from "./home.module.css";
+
+export const metadata: Metadata = { title: "Kashish Shah" };
+
+const LABEL_STYLE: React.CSSProperties = {
+  fontFamily: "var(--font-mono)",
+  fontSize: "10.5px",
+  fontWeight: 500,
+  letterSpacing: "0.09em",
+  textTransform: "uppercase",
+  color: "var(--text-3)",
+  marginBottom: "16px",
+};
+
+const RULE: React.CSSProperties = {
+  border: "none",
+  borderTop: "1px solid var(--border)",
+};
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="pw" style={{ paddingTop: "72px", paddingBottom: "96px" }}>
+
+      {/* ── Two-column grid ───────────────────────────────── */}
+      <div className={s.grid}>
+
+        {/* LEFT: Name + bio */}
+        <div>
+          <h1 className={s.heroTitle}>
+            Kashish Shah
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          <p style={{ fontSize: "16px", color: "var(--text-2)", marginBottom: "10px" }}>
+            ML Engineer · Mumbai → Boston
           </p>
+
+          <Currently />
+
+          {/* Social links */}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "0 24px", marginBottom: "44px" }}>
+            {([
+              { label: "Email",    href: "mailto:kashishah2804@gmail.com" },
+              { label: "LinkedIn", href: "https://linkedin.com/in/kashish-shah-2804" },
+              { label: "GitHub",   href: "https://github.com/kashish-shah" },
+              { label: "Resume",   href: "/Kashish_Shah_Resume.pdf" },
+            ] as const).map(({ label, href }) => (
+              <a key={label} href={href}
+                target={href.startsWith("mailto") ? undefined : "_blank"}
+                rel="noopener noreferrer"
+                className="ul-green"
+                style={{ fontSize: "13.5px" }}>
+                {label}
+              </a>
+            ))}
+          </div>
+
+          <hr style={{ ...RULE, marginBottom: "44px" }} />
+
+          {/* Bio */}
+          <div style={{ maxWidth: "540px" }}>
+            <p style={{ fontSize: "15.5px", color: "var(--text-2)", lineHeight: 1.8, marginBottom: "16px" }}>
+              Born in Mumbai, moved to Boston for grad school, stayed for the work. Finished
+              my MS in ECE at Northeastern — but the degree is the least interesting thing
+              about the last two years.
+            </p>
+            <p style={{ fontSize: "15.5px", color: "var(--text-2)", lineHeight: 1.8 }}>
+              Co-founded{" "}
+              <strong style={{ color: "var(--text)", fontWeight: 600 }}>The Spiral Squad</strong>
+              {" "}with ₹0 in 2023, grew it to ₹40L in revenue across 30+ clients. Built{" "}
+              <a href="https://harmonetics.vercel.app/" target="_blank" rel="noopener noreferrer"
+                className="ul-green" style={{ fontWeight: 500 }}>Harmonetics</a>
+              {" "}— music therapy for autistic toddlers, live at 8 therapy centers.
+              Nine roles in, the thread is always the same: make the thing feel human.
+            </p>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* RIGHT: Info sidebar */}
+        <div>
+          <p style={LABEL_STYLE}>Now</p>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "20px", marginBottom: "32px" }}>
+            {([
+              { role: "ML Engineer", company: "SquareResults", note: "AI recruiting — resume parsing & semantic matching at scale.", link: undefined },
+              { role: "Software Dev Engineer", company: "Adaptive Concepts Academy", note: "Harmonetics — music therapy for autistic toddlers.", link: "https://harmonetics.vercel.app/" },
+            ] as const).map(({ role, company, note, link }) => (
+              <div key={company}>
+                <p style={{ fontSize: "14px", fontWeight: 500, color: "var(--text)", marginBottom: "2px", lineHeight: 1.35 }}>
+                  {role}
+                </p>
+                <p style={{ fontSize: "12.5px", color: "var(--text-3)", marginBottom: "4px" }}>
+                  {company}
+                  {link && (
+                    <a href={link} target="_blank" rel="noopener noreferrer"
+                      className="ul-green" style={{ marginLeft: "5px", fontSize: "11px" }}>↗</a>
+                  )}
+                </p>
+                <p style={{ fontSize: "12px", color: "var(--text-3)", lineHeight: 1.5 }}>{note}</p>
+              </div>
+            ))}
+          </div>
+
+          <hr style={{ ...RULE, marginBottom: "28px" }} />
+
+          <p style={LABEL_STYLE}>Education</p>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+            {([
+              { school: "Northeastern University", degree: "M.S. Electrical & Computer Engineering", meta: "2023 – 2025 · GPA 3.56 · Boston" },
+              { school: "University of Mumbai",    degree: "B.Tech Electronics & Telecom Engineering", meta: "2019 – 2023 · GPA 3.52 · Mumbai" },
+            ] as const).map(({ school, degree, meta }) => (
+              <div key={school}>
+                <p style={{ fontSize: "14px", fontWeight: 500, color: "var(--text)", marginBottom: "3px", lineHeight: 1.35 }}>
+                  {school}
+                </p>
+                <p style={{ fontSize: "12.5px", color: "var(--text-2)", marginBottom: "2px", lineHeight: 1.4 }}>{degree}</p>
+                <p style={{ fontSize: "12px", color: "var(--text-3)" }}>{meta}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
+      </div>
+
+      {/* ── Bottom links ──────────────────────────────────── */}
+      <hr style={{ ...RULE, marginBottom: "36px" }} />
+      <div style={{ display: "flex", gap: "32px" }}>
+        <Link href="/work"     className="ul-green" style={{ fontSize: "14px" }}>Work →</Link>
+        <Link href="/projects" className="ul-green" style={{ fontSize: "14px" }}>Projects →</Link>
+      </div>
+
     </div>
   );
 }
