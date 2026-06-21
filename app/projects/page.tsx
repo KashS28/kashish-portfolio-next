@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import s from "./projects.module.css";
+import ProjectsGrid from "./ProjectsGrid";
 
 export const metadata: Metadata = { title: "Projects — Kashish Shah" };
 
@@ -104,44 +104,7 @@ export default function ProjectsPage() {
         </p>
       </div>
 
-      {/* 2-column grid */}
-      <div className={s.grid}>
-        {projects.map((p, i) => (
-          <div key={i} style={{ borderTop: "1px solid var(--border)", padding: "26px 0" }}>
-
-            {/* Title + Category */}
-            <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "12px", marginBottom: "10px" }}>
-              <p style={{ fontFamily: "var(--font-display)", fontSize: "15.5px", fontWeight: 700, letterSpacing: "-0.02em", color: "var(--text)", lineHeight: 1.25 }}>
-                {p.title}
-                {p.link && (
-                  <a href={p.link} target="_blank" rel="noopener noreferrer"
-                    className="ul-green"
-                    style={{ fontSize: "12px", fontFamily: "var(--font-sans)", fontWeight: 400, marginLeft: "7px" }}>
-                    ↗
-                  </a>
-                )}
-              </p>
-              <span style={{ fontFamily: "var(--font-mono)", fontSize: "10.5px", color: "var(--text-3)", whiteSpace: "nowrap", flexShrink: 0, paddingTop: "2px" }}>
-                {p.category}
-              </span>
-            </div>
-
-            {/* Description */}
-            <p style={{ fontSize: "13.5px", color: "var(--text-2)", lineHeight: 1.7, marginBottom: "12px" }}>
-              {p.description}
-            </p>
-
-            {/* Tags */}
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "5px" }}>
-              {p.stack.map((t) => <span key={t} className="tag">{t}</span>)}
-            </div>
-          </div>
-        ))}
-
-        {projects.length % 2 !== 0 && (
-          <div style={{ borderTop: "1px solid var(--border)" }} />
-        )}
-      </div>
+      <ProjectsGrid projects={projects} />
     </div>
   );
 }
