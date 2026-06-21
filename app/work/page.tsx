@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import WorkList from "./WorkList";
 
 export const metadata: Metadata = { title: "Work — Kashish Shah" };
 
@@ -75,13 +76,11 @@ const jobs = [
     stack: ["HTML", "CSS", "JavaScript", "WordPress", "Figma", "Bootstrap"],
     link: null,
   },
-];
+] as const;
 
 export default function WorkPage() {
   return (
     <div className="pw" style={{ paddingTop: "64px", paddingBottom: "96px" }}>
-
-      {/* Header */}
       <div style={{ marginBottom: "56px" }}>
         <h1 style={{ fontFamily: "var(--font-display)", fontSize: "32px", fontWeight: 700, letterSpacing: "-0.03em", color: "var(--text)", marginBottom: "8px" }}>
           Work
@@ -90,51 +89,7 @@ export default function WorkPage() {
           5+ years across ML research, production AI, full-stack engineering, and entrepreneurship.
         </p>
       </div>
-
-      {/* Job list */}
-      <div>
-        {jobs.map((job, i) => (
-          <div key={i} style={{ borderTop: "1px solid var(--border)", padding: "32px 0" }}>
-
-            {/* Company + Period */}
-            <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "24px", marginBottom: "5px" }}>
-              <h2 style={{ fontFamily: "var(--font-display)", fontSize: "18px", fontWeight: 700, letterSpacing: "-0.025em", color: "var(--text)", lineHeight: 1.2 }}>
-                {job.company}
-                {job.link && (
-                  <a href={job.link} target="_blank" rel="noopener noreferrer"
-                    className="ul-green"
-                    style={{ fontSize: "12px", fontFamily: "var(--font-sans)", fontWeight: 400, marginLeft: "8px" }}>
-                    ↗
-                  </a>
-                )}
-              </h2>
-              <span style={{ fontFamily: "var(--font-mono)", fontSize: "11.5px", color: "var(--text-3)", whiteSpace: "nowrap", paddingTop: "3px", flexShrink: 0 }}>
-                {job.period}
-              </span>
-            </div>
-
-            {/* Role + Location */}
-            <p style={{ fontSize: "13.5px", color: "var(--green)", fontWeight: 500, marginBottom: "16px" }}>
-              {job.role}
-              <span style={{ color: "var(--text-3)", fontWeight: 400, marginLeft: "8px" }}>· {job.location}</span>
-            </p>
-
-            {/* Summary */}
-            <p style={{ fontSize: "14.5px", color: "var(--text-2)", lineHeight: 1.75, marginBottom: "16px", maxWidth: "720px" }}>
-              {job.summary}
-            </p>
-
-            {/* Tags */}
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
-              {job.stack.map((t) => (
-                <span key={t} className="tag">{t}</span>
-              ))}
-            </div>
-          </div>
-        ))}
-
-        <div style={{ borderTop: "1px solid var(--border)" }} />
-      </div>
+      <WorkList jobs={jobs} />
     </div>
   );
 }

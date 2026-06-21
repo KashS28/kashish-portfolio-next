@@ -14,6 +14,16 @@ const LINES = [
   "building something at 2am",
   "pretending I understand transformers",
   "wishing I was eating vada pav",
+  "somewhere between PyTorch and a deadline",
+  "staring at a CUDA out of memory error",
+  "wondering if RAG is enough",
+  "reading papers I'll never finish",
+  "in a meeting about the meeting",
+  "caffeinating in SFO",
+  "loss is going down. probably.",
+  "on a flight probably",
+  "figuring out why the loss isn't converging",
+  "accidentally opened vim",
 ];
 
 export default function Currently() {
